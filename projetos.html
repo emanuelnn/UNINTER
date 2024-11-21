@@ -29,7 +29,7 @@
                 <div id="links">
                     <h2>Outros Trabalhos</h2>
                     <div class="trabalhos">
-
+                        <!--Utilizando FlexGrid, os Posts desta página são agrupados lado a lado-->
                         <div class="post_trabalho">
                             <a href="https://frontend-suasreceitas.vercel.app" target="_blank">
                                 <img src="img/img1.png" alt="Site de Receitas">
@@ -59,6 +59,26 @@
 
         <script src="js/particles.js"></script>
         <script src="js/app.js"></script>
+        <!--Este trecho de código diz respeito ao background de partículas-->
+        <script> 
+            var count_particles, stats, update;
+            stats = new Stats;
+            stats.setMode(0);
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+            document.body.appendChild(stats.domElement);
+            count_particles = document.querySelector('.js-count-particles');
+            update = function() {
+                stats.begin();
+                stats.end();
+                if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                }
+                requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        </script>
 
     </body>
 
